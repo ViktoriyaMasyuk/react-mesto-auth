@@ -1,0 +1,24 @@
+.profile__button {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+    grid-area: avatar;
+    margin-right: 34px;
+    transition: opacity 1s linear 0.1s;
+    opacity: 1;
+    border: none;
+    background-color: transparent;
+    
+}
+@media screen and (max-width: 768px) {
+    .profile__button {
+        margin: 0px auto 25px auto;
+    }
+}
+.profile__button:hover {
+    background-image: url(../../../images/Vector17.svg);
+    z-index: 3;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+}

@@ -1,0 +1,23 @@
+.image-card__close {
+    box-sizing: border-box;
+    align-self: flex-end;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../../images/CloseIcon.svg);
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    z-index: 5;
+    cursor: pointer;
+    position: fixed;
+    margin-top: -38px;
+    margin-right: -50px;
+}
+@media screen and (max-width: 768px) {
+    .image-card__close {
+        margin-right: 0;
+        width: 20px;
+        height: 20px;
+        background-image: url(../../../images/CloseIconmobile.svg);
+    }
+}

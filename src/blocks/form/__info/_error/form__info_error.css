@@ -1,0 +1,8 @@
+.form__info_error {
+    border: none;
+    border-bottom: 1px solid red;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+    
+}

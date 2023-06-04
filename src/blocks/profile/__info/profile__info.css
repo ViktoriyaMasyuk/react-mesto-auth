@@ -1,0 +1,27 @@
+.profile__info {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: repeat(2, max-content);
+    grid-template-areas: 
+    "avatar title edit-button"
+    "avatar subtitle subtitle";
+    align-items: center;
+    align-content: center;
+    row-gap: 16px;
+    margin: 0;
+}
+@media screen and (max-width: 768px) {
+    .profile__info {
+        grid-template-columns: repeat(2, max-content);
+        grid-template-rows: repeat(3, max-content);
+        grid-template-areas: 
+        "avatar avatar"
+        "title edit-button"
+        "subtitle subtitle";
+        width: 100%;
+        margin: 0 auto;
+        row-gap: 0px;
+        justify-content: center;
+        justify-items: center;
+    }
+}

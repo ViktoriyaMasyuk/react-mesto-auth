@@ -1,0 +1,23 @@
+.form__close {
+    box-sizing: border-box;
+    align-self: flex-end;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../../images/CloseIcon.svg);
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    z-index: 5;
+    cursor: pointer;
+    position: fixed;
+    margin-top: -38px;
+    margin-right: -78px;
+}
+@media screen and (max-width: 768px) {
+    .form__close {
+        margin-right: -7px;
+        width: 20px;
+        height: 20px;
+        background-image: url(../../../images/CloseIconmobile.svg);
+    }
+}

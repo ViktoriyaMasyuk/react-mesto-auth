@@ -1,0 +1,16 @@
+.form {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 36px;
+    padding-right: 36px;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+    .form {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
