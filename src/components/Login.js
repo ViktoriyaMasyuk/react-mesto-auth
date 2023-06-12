@@ -3,7 +3,7 @@ import Sign from "./Sign";
 import { useNavigate } from "react-router-dom";
 import * as Auth from "../utils/Auth";
 
-function Login(props) {
+function Login({handleAuthorize}) {
   const [formValue, setFormValue] = useState({
     email: "",
     password: "",
@@ -24,17 +24,8 @@ function Login(props) {
     if (!formValue.email || !formValue.password) {
       return;
     }
-    Auth.authorize(formValue.email, formValue.password)
-      .then((res) => {
-        localStorage.setItem('jwt', res.token);
-          setFormValue({ email: "", password: "" });
-          props.handleLogin();
-          navigate("/", { replace: true });
-      })
-      .catch((err) => {
-        props.handleTooltipError();
-        console.log(err);
-      });
+    handleAuthorize(formValue.email, formValue.password);
+    setFormValue({ email: "", password: "" });
   }
 
   return (

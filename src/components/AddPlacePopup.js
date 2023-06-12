@@ -1,29 +1,38 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
+import { useForm } from "../hooks/useForm";
+import { useFormAndValidation } from "../hooks/useFormAndValidation";
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
-  const [name, setName] = React.useState("");
-  const [link, setLink] = React.useState("");
+  // const [name, setName] = React.useState("");
+  // const [link, setLink] = React.useState("");
 
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
-  function handleLinkChange(e) {
-    setLink(e.target.value);
-  }
+  // function handleNameChange(e) {
+  //   setName(e.target.value);
+  // }
+  // function handleLinkChange(e) {
+  //   setLink(e.target.value);
+  // }
 
-  React.useEffect(() => {
-    setName("");
-    setLink("");
-  }, [isOpen]);
+//   React.useEffect(() => {
+//     setName("");
+//     setLink("");
+//   }, [isOpen]);
+
+
+const name = useForm('');
+const link = useForm('');
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(name, link);
     onAddPlace({
-      name: name,
-      link: link,
+      name: name.values.name,
+      link: link.values.link,
     });
-  }
+ }
+ //не совсем поняла, как именно запускать валидацию
+ const {values, handleChange, errors, isValid, setValues, resetForm} = useFormAndValidation();
 
   return (
     <PopupWithForm
@@ -34,6 +43,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isValid={isValid}
     >
       <>
         <input
@@ -46,8 +56,9 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
           maxLength="30"
           required
           placeholder="Название"
-          value={name || ""}
-          onChange={handleNameChange}
+          //value={name || ""}
+          value={name.value}
+          onChange={name.handleChange}
         />
         <span className="form__input-error place-input-error" />
         <input
@@ -58,8 +69,9 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
           size="25"
           required
           placeholder="Сcылка на картинку"
-          value={link || ""}
-          onChange={handleLinkChange}
+          //value={link || ""}
+          value={link.value}
+          onChange={link.handleChange}
         />
         <span className="form__input-error email-input-error" />
       </>

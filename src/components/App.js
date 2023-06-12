@@ -187,7 +187,19 @@ const [email, setEmail] = useState(false);
       console.log(err);   
     })
   }
-
+//авторизация пользователя
+function authorizeUser(email, password) {
+  Auth.authorize(email, password)
+    .then((res) => {
+      localStorage.setItem('jwt', res.token);
+      handleLogin();
+      navigate("/", { replace: true });
+      })
+      .catch((err) => {
+        handleTooltipErrorClick();
+        console.log(err);
+      });
+}
 //проверка токена
 function tokenCheck() {
   const jwt = localStorage.getItem('jwt');
@@ -199,6 +211,9 @@ function tokenCheck() {
         setEmail(res.data.email);
         navigate("/", {replace: true})
       }
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 } 
@@ -227,7 +242,6 @@ tokenCheck();
            cards={cards}
            onCardLike={handleCardLike}
            onCardDelete={handleCardDelete}
-           
            />} />  
          <Route 
          path="/sign-up"
@@ -235,7 +249,7 @@ tokenCheck();
         />
         <Route 
         path="/sign-in"
-        element={<Login handleLogin={handleLogin} handleTooltipError={handleTooltipErrorClick}/>}
+        element={<Login handleAuthorize={authorizeUser} />}
         />
 
         </ Routes >
