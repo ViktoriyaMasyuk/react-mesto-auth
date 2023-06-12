@@ -1,0 +1,11 @@
+.sign__submit {
+    background: white;
+    color: black;
+    margin: 216px auto 15px auto;
+}
+@media screen and (max-width: 768px) {
+    .sign__submit {
+    margin: 143px auto 5px auto;
+    max-width: 260px;
+    }
+}

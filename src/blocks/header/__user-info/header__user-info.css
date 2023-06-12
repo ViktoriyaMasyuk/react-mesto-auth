@@ -1,0 +1,14 @@
+.header__user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    .header__user-info {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+    }
+  }

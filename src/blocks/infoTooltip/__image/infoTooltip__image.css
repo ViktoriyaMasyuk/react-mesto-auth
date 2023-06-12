@@ -1,0 +1,7 @@
+.infoTooltip__image {
+    min-width: 120px;
+    min-height: 120px;
+    background-color: transparent;
+    margin: 60px auto 32px auto;
+    z-index: 10;
+}
