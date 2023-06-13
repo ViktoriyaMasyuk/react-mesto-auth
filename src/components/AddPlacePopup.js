@@ -31,7 +31,7 @@ const link = useForm('');
       link: link.values.link,
     });
  }
- //не совсем поняла, как именно запускать валидацию
+ 
  const {values, handleChange, errors, isValid, setValues, resetForm} = useFormAndValidation();
 
   return (
@@ -43,7 +43,7 @@ const link = useForm('');
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      isValid={isValid}
+      isValid={values, handleChange, errors, isValid, setValues, resetForm}
     >
       <>
         <input
@@ -72,6 +72,7 @@ const link = useForm('');
           //value={link || ""}
           value={link.value}
           onChange={link.handleChange}
+          
         />
         <span className="form__input-error email-input-error" />
       </>
@@ -79,3 +80,4 @@ const link = useForm('');
   );
 }
 export default AddPlacePopup;
+
